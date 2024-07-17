@@ -1,0 +1,22 @@
+image:
+  repository: cauldyclark15/mongodb-backup
+  tag: latest
+  pullPolicy: IfNotPresent
+
+mongodb:
+  uri: ""
+  oplog: "true"
+
+linode:
+  bucketName: ""
+  cliToken: ""
+
+backup:
+  password: ""
+
+schedule: "0 */1 * * *"
+
+secrets:
+  mongodbUriSecretName: mongodb-uri
+  linodeSecretName: linode
+  backupSecretName: backup-secrets

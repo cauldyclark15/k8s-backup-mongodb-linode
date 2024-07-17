@@ -1,0 +1,45 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: backup-mongodb
+spec:
+  schedule: "0 */1 * * *"
+  concurrencyPolicy: Forbid
+  suspend: false
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+            - name: backup-mongodb
+              image: cauldyclark15/mongodb-backup:latest
+              env:
+                - name: MONGODB_URI
+                  valueFrom:
+                    secretKeyRef:
+                      name: mongodb-uri
+                      key: MONGODB_URI
+
+                - name: MONGODB_OPLOG
+                  value: "true"
+
+                - name: BUCKET_NAME
+                  valueFrom:
+                    secretKeyRef:
+                      name: linode
+                      key: BUCKET_NAME
+
+                - name: LINODE_CLI_TOKEN
+                  valueFrom:
+                    secretKeyRef:
+                      name: linode
+                      key: LINODE_CLI_TOKEN
+
+                - name: PASSWORD_7ZIP
+                  valueFrom:
+                    secretKeyRef:
+                      name: backup-secrets
+                      key: PASSWORD_7ZIP
