@@ -37,8 +37,10 @@ if [ ! -z "$PASSWORD_7ZIP" ]; then
     7za a -tzip -p"$PASSWORD_7ZIP" -mem=AES256 "$COPY_NAME" "$ARCHIVE_NAME"
 fi
 
-echo "[$SCRIPT_NAME] Uploading compressed archive to Linode Object Storage..."
+echo "[$SCRIPT_NAME] Configuring Linode CLI with the provided token..."
+linode-cli configure --token "$LINODE_CLI_TOKEN"
 
+echo "[$SCRIPT_NAME] Uploading compressed archive to Linode Object Storage..."
 linode-cli obj put "$COPY_NAME" "$BUCKET_NAME/$COPY_NAME"
 
 echo "[$SCRIPT_NAME] Cleaning up compressed archive..."

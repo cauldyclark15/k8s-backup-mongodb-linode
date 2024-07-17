@@ -17,9 +17,6 @@ ENV MONGODB_URI="" \
     LINODE_CLI_TOKEN="" \
     PASSWORD_7ZIP=""
 
-# Configure linode-cli with the API token
-RUN linode-cli configure --token $LINODE_CLI_TOKEN
-
 RUN apt-get clean autoclean && \
     apt-get autoremove --yes && \
     rm -rf /var/lib/apt/lists/*
