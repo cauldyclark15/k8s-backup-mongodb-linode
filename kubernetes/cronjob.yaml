@@ -32,6 +32,18 @@ spec:
                       name: linode
                       key: BUCKET_NAME
 
+                - name: LINODE_CLI_OBJ_ACCESS_KEY
+                  valueFrom:
+                    secretKeyRef:
+                      name: linode
+                      key: LINODE_CLI_OBJ_ACCESS_KEY
+
+                - name: LINODE_CLI_OBJ_SECRET_KEY
+                  valueFrom:
+                    secretKeyRef:
+                      name: linode
+                      key: LINODE_CLI_OBJ_SECRET_KEY
+
                 - name: LINODE_CLI_TOKEN
                   valueFrom:
                     secretKeyRef:

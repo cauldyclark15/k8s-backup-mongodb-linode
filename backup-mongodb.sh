@@ -21,6 +21,8 @@ COPY_NAME=$ARCHIVE_NAME
 
 echo "[$SCRIPT_NAME] Setting LINODE_CLI_TOKEN environment variable..."
 export LINODE_CLI_TOKEN="$LINODE_CLI_TOKEN"
+export LINODE_CLI_OBJ_SECRET_KEY="$LINODE_CLI_OBJ_SECRET_KEY"
+export LINODE_CLI_OBJ_ACCESS_KEY="$LINODE_CLI_OBJ_ACCESS_KEY"
 
 echo "[$SCRIPT_NAME] Uploading compressed archive to Linode Object Storage..."
 
