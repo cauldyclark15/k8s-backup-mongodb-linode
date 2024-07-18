@@ -10,11 +10,12 @@ if [ -n "$MONGODB_OPLOG" ]; then
 	OPLOG_FLAG="--oplog"
 fi
 
-echo "[$SCRIPT_NAME] Dumping all MongoDB databases to compressed archive..."
+echo "[$SCRIPT_NAME] Dumping $DATABASE database to compressed archive..."
 
 mongodump $OPLOG_FLAG \
 	--archive="$ARCHIVE_NAME" \
 	--db="$DATABASE" \
+	--authenticationDatabase "admin" \
 	--gzip \
 	--uri "$MONGODB_URI"
 

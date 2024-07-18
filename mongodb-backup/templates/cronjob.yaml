@@ -15,7 +15,7 @@ spec:
           restartPolicy: OnFailure
           containers:
             - name: backup-mongodb
-              image: cauldyclark15/mongodb-backup:d2a541afefdf1630e154d828250557841a6aa795
+              image: cauldyclark15/mongodb-backup:048260e83439b48014ac982771feea97e947ddf6
               env:
                 - name: MONGODB_URI
                   valueFrom:
@@ -34,24 +34,20 @@ spec:
                     secretKeyRef:
                       name: linode
                       key: LINODE_CLI_OBJ_ACCESS_KEY
-
                 - name: LINODE_CLI_OBJ_SECRET_KEY
                   valueFrom:
                     secretKeyRef:
                       name: linode
                       key: LINODE_CLI_OBJ_SECRET_KEY
-
                 - name: LINODE_CLI_TOKEN
                   valueFrom:
                     secretKeyRef:
                       name: linode
                       key: LINODE_CLI_TOKEN
-
                 - name: REGION
                   valueFrom:
                     secretKeyRef:
                       name: linode
                       key: REGION
-
                 - name: DATABASE
                   value: {{ .Values.database }}

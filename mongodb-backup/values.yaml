@@ -1,2 +1,2 @@
 schedule: "0 * * * *"
-database: "my-db"
+database: "itemcount"
