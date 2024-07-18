@@ -15,7 +15,7 @@ kubectl create secret generic linode --from-literal=BUCKET_NAME='linode-bucket' 
 helm package mongodb-backup
 ```
 
-### Deploy your help chart
+### Deploy your helm chart
 
 ```sh
 helm upgrade --install itemcount-mongodb-backup ./mongodb-backup-0.1.0.tgz:
