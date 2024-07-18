@@ -15,7 +15,7 @@ spec:
           restartPolicy: OnFailure
           containers:
             - name: backup-mongodb
-              image: cauldyclark15/itemcount-graphql-staging:IMAGE_LABEL
+              image: cauldyclark15/mongodb-backup:latest
               imagePullPolicy: IfNotPresent
               env:
                 - name: MONGODB_URI
