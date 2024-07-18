@@ -7,5 +7,5 @@ Schedule MongoDB Backup to Linode Object Storage Using Kubernetes CronJob
 ```sh
 kubectl create secret generic mongodb-uri --from-literal=MONGODB_URI='your-mongodb-uri'
 kubectl create secret generic linode --from-literal=BUCKET_NAME='your-bucket-name' --from-literal=LINODE_CLI_TOKEN='your-linode-cli-token'
-kubectl create secret generic backup-secrets --from-literal=PASSWORD_7ZIP='your-7zip-password'
+kubectl create secret generic backup-secrets --from-literal=PASSWORD_7ZIP='your-7zip-password' (optional)
 ```
