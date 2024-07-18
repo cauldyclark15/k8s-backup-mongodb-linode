@@ -3,8 +3,8 @@ FROM mongo:latest
 RUN apt update && \
     apt install -y python3 python3-pip p7zip-full
 
-# Install linode-cli
-RUN pip3 install linode-cli
+# Install linode-cli and boto3
+RUN pip3 install linode-cli boto3
 
 WORKDIR /scripts
 

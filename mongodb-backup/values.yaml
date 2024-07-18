@@ -4,12 +4,12 @@ image:
   pullPolicy: IfNotPresent
 
 mongodb:
-  uri: ""
+  uri: "your-mongodb-uri"
   oplog: "true"
 
 linode:
-  bucketName: ""
-  cliToken: ""
+  bucketName: "your-bucket-name"
+  cliToken: "your-linode-cli-token"
 
 backup:
   password: ""

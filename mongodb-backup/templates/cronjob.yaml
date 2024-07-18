@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: {{ .Release.Name }}-backup-mongodb
+  name: backup-mongodb
 spec:
   schedule: "{{ .Values.schedule }}"
   concurrencyPolicy: Forbid
@@ -16,31 +16,32 @@ spec:
           containers:
             - name: backup-mongodb
               image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-              imagePullPolicy: {{ .Values.image.pullPolicy }}
+              imagePullPolicy: { { .Values.image.pullPolicy } }
               env:
                 - name: MONGODB_URI
                   valueFrom:
                     secretKeyRef:
-                      name: {{ .Values.secrets.mongodbUriSecretName }}
+                      name: { { .Values.secrets.mongodbUriSecretName } }
                       key: MONGODB_URI
                 - name: MONGODB_OPLOG
-                  value: {{ .Values.mongodb.oplog | quote }}
+                  value: { { .Values.mongodb.oplog | quote } }
                 - name: BUCKET_NAME
                   valueFrom:
                     secretKeyRef:
-                      name: {{ .Values.secrets.linodeSecretName }}
+                      name: { { .Values.secrets.linodeSecretName } }
                       key: BUCKET_NAME
                 - name: LINODE_CLI_TOKEN
                   valueFrom:
                     secretKeyRef:
-                      name: {{ .Values.secrets.linodeSecretName }}
+                      name: { { .Values.secrets.linodeSecretName } }
                       key: LINODE_CLI_TOKEN
                 - name: PASSWORD_7ZIP
                   valueFrom:
                     secretKeyRef:
-                      name: {{ .Values.secrets.backupSecretName }}
+                      name: { { .Values.secrets.backupSecretName } }
                       key: PASSWORD_7ZIP
+                  optional: true
           volumes:
             - name: backup-secrets
               secret:
-                secretName: {{ .Values.secrets.backupSecretName }}
+                secretName: { { .Values.secrets.backupSecretName } }
