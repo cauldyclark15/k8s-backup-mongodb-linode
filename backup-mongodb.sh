@@ -27,7 +27,7 @@ export REGION="$REGION"
 
 echo "[$SCRIPT_NAME] Uploading compressed archive to Linode Object Storage..."
 
-linode-cli obj put "$COPY_NAME" "$BUCKET_NAME/$COPY_NAME"
+linode-cli obj put "$COPY_NAME" "$BUCKET_NAME/$COPY_NAME" --cluster "$REGION"
 
 echo "[$SCRIPT_NAME] Cleaning up compressed archive..."
 rm "$COPY_NAME"
