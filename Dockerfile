@@ -1,4 +1,4 @@
-FROM mongo:latest
+FROM --platform=linux/amd64 mongo:latest
 
 RUN apt update && \
     apt install -y python3 python3-pip
