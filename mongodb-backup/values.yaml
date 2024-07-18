@@ -3,18 +3,7 @@ image:
   tag: latest
   pullPolicy: IfNotPresent
 
-mongodb:
-  uri: "your-mongodb-uri"
-  oplog: "true"
-
-linode:
-  bucketName: "your-bucket-name"
-  cliToken: "your-linode-cli-token"
-
-backup:
-  password: ""
-
-schedule: "0 */1 * * *"
+schedule: "30 * * * *"
 
 secrets:
   mongodbUriSecretName: mongodb-uri

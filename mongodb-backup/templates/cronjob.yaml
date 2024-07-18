@@ -24,7 +24,7 @@ spec:
                       name: { { .Values.secrets.mongodbUriSecretName } }
                       key: MONGODB_URI
                 - name: MONGODB_OPLOG
-                  value: { { .Values.mongodb.oplog | quote } }
+                  value: "true"
                 - name: BUCKET_NAME
                   valueFrom:
                     secretKeyRef:
