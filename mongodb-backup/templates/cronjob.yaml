@@ -1,13 +1,3 @@
-# This section will create a secret in the Kubernetes cluster.
-# We need this for private docker repos.
-apiVersion: v1
-kind: Secret
-metadata:
-  name: regcred
-data:
-  .dockerconfigjson: DOCKER_CONFIG
-type: kubernetes.io/dockerconfigjson
----
 apiVersion: batch/v1
 kind: CronJob
 metadata:
@@ -51,8 +41,6 @@ spec:
                       name: backup-secrets
                       key: PASSWORD_7ZIP
                   optional: true
-          imagePullSecrets:
-            - name: regcred
           volumes:
             - name: backup-secrets
               secret:
