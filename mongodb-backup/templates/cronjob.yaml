@@ -15,7 +15,7 @@ spec:
           restartPolicy: OnFailure
           containers:
             - name: backup-mongodb
-              image: cauldyclark15/mongodb-backup:3d7458c25e60f84a533695cde467c51c14e35347
+              image: cauldyclark15/mongodb-backup:latest
               imagePullPolicy: IfNotPresent
               env:
                 - name: MONGODB_URI
@@ -35,12 +35,3 @@ spec:
                     secretKeyRef:
                       name: linode
                       key: LINODE_CLI_TOKEN
-                - name: PASSWORD_7ZIP
-                  valueFrom:
-                    secretKeyRef:
-                      name: backup-secrets
-                      key: PASSWORD_7ZIP
-          volumes:
-            - name: backup-secrets
-              secret:
-                secretName: backup-secrets

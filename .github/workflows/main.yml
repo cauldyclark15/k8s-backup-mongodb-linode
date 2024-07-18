@@ -20,5 +20,3 @@ jobs:
         run: |
           docker build --tag ${{ secrets.DOCKERHUB_CNC_USERNAME }}/${{ secrets.DOCKERHUB_MONGODB_BACKUP_REPOSITORY }}:${{ github.sha }} .
           docker push ${{ secrets.DOCKERHUB_CNC_USERNAME }}/${{ secrets.DOCKERHUB_MONGODB_BACKUP_REPOSITORY }}:${{ github.sha }}
-          export DOCKER_CONFIG=$(cat ~/.docker/config.json | base64 -w 0)
-

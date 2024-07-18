@@ -3,7 +3,7 @@ kind: CronJob
 metadata:
   name: backup-mongodb
 spec:
-  schedule: "0 */1 * * *"
+  schedule: "0 * * * *"
   concurrencyPolicy: Forbid
   suspend: false
   successfulJobsHistoryLimit: 3
@@ -37,9 +37,3 @@ spec:
                     secretKeyRef:
                       name: linode
                       key: LINODE_CLI_TOKEN
-
-                - name: PASSWORD_7ZIP
-                  valueFrom:
-                    secretKeyRef:
-                      name: backup-secrets
-                      key: PASSWORD_7ZIP

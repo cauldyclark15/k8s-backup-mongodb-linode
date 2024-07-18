@@ -1,7 +1,7 @@
 FROM mongo:latest
 
 RUN apt update && \
-    apt install -y python3 python3-pip p7zip-full
+    apt install -y python3 python3-pip
 
 # Install linode-cli and boto3
 RUN pip3 install linode-cli boto3
@@ -14,8 +14,7 @@ RUN chmod +x backup-mongodb.sh
 ENV MONGODB_URI="" \
     MONGODB_OPLOG="" \
     BUCKET_NAME="" \
-    LINODE_CLI_TOKEN="" \
-    PASSWORD_7ZIP=""
+    LINODE_CLI_TOKEN=""
 
 RUN apt-get clean autoclean && \
     apt-get autoremove --yes && \
