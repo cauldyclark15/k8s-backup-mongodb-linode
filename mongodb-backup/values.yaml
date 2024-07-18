@@ -3,9 +3,4 @@ image:
   tag: latest
   pullPolicy: IfNotPresent
 
-schedule: "30 * * * *"
-
-secrets:
-  mongodbUriSecretName: mongodb-uri
-  linodeSecretName: linode
-  backupSecretName: backup-secrets
+schedule: "0 * * * *"

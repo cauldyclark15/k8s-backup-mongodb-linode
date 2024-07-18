@@ -16,32 +16,32 @@ spec:
           containers:
             - name: backup-mongodb
               image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-              imagePullPolicy: { { .Values.image.pullPolicy } }
+              imagePullPolicy: IfNotPresent
               env:
                 - name: MONGODB_URI
                   valueFrom:
                     secretKeyRef:
-                      name: { { .Values.secrets.mongodbUriSecretName } }
+                      name: mongodb-uri
                       key: MONGODB_URI
                 - name: MONGODB_OPLOG
                   value: "true"
                 - name: BUCKET_NAME
                   valueFrom:
                     secretKeyRef:
-                      name: { { .Values.secrets.linodeSecretName } }
+                      name: linode
                       key: BUCKET_NAME
                 - name: LINODE_CLI_TOKEN
                   valueFrom:
                     secretKeyRef:
-                      name: { { .Values.secrets.linodeSecretName } }
+                      name: linode
                       key: LINODE_CLI_TOKEN
                 - name: PASSWORD_7ZIP
                   valueFrom:
                     secretKeyRef:
-                      name: { { .Values.secrets.backupSecretName } }
+                      name: backup-secrets
                       key: PASSWORD_7ZIP
                   optional: true
           volumes:
             - name: backup-secrets
               secret:
-                secretName: { { .Values.secrets.backupSecretName } }
+                secretName: backup-secrets
