@@ -55,3 +55,6 @@ spec:
                     secretKeyRef:
                       name: linode
                       key: REGION
+
+                - name: DATABASE
+                  value: {{ .Values.database }}

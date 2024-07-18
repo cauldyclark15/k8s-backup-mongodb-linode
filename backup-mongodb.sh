@@ -3,7 +3,7 @@
 set -e
 
 SCRIPT_NAME=backup-mongodb
-ARCHIVE_NAME=mongodump_$(date +%Y%m%d_%H%M%S).gz
+ARCHIVE_NAME=mongodump_$DATABASE.gz
 OPLOG_FLAG=""
 
 if [ -n "$MONGODB_OPLOG" ]; then
@@ -14,6 +14,7 @@ echo "[$SCRIPT_NAME] Dumping all MongoDB databases to compressed archive..."
 
 mongodump $OPLOG_FLAG \
 	--archive="$ARCHIVE_NAME" \
+	--db="$DATABASE" \
 	--gzip \
 	--uri "$MONGODB_URI"
 
