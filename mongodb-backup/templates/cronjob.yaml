@@ -3,7 +3,7 @@ kind: CronJob
 metadata:
   name: backup-mongodb
 spec:
-  schedule: "{{ .Values.schedule }}"
+  schedule: {{ .Values.schedule }}
   concurrencyPolicy: Forbid
   suspend: false
   successfulJobsHistoryLimit: 3
