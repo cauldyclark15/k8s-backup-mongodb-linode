@@ -1,6 +1,1 @@
-image:
-  repository: cauldyclark15/mongodb-backup
-  tag: latest
-  pullPolicy: IfNotPresent
-
 schedule: "0 * * * *"
