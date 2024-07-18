@@ -15,7 +15,7 @@ spec:
           restartPolicy: OnFailure
           containers:
             - name: backup-mongodb
-              image: cauldyclark15/mongodb-backup:469f1c846c499b1936602f6aecb9734f5dcea7ff
+              image: cauldyclark15/mongodb-backup:c0a27a150797340d43022ae5bc4369b393865299
               env:
                 - name: MONGODB_URI
                   valueFrom:
