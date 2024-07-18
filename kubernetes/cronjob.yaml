@@ -49,3 +49,9 @@ spec:
                     secretKeyRef:
                       name: linode
                       key: LINODE_CLI_TOKEN
+
+                - name: REGION
+                  valueFrom:
+                    secretKeyRef:
+                      name: linode
+                      key: REGION
