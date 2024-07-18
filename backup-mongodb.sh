@@ -15,8 +15,7 @@ echo "[$SCRIPT_NAME] Dumping all MongoDB databases to compressed archive..."
 mongodump $OPLOG_FLAG \
 	--archive="$ARCHIVE_NAME" \
 	--gzip \
-	--uri "$MONGODB_URI" \
-	--noCursorTimeout
+	--uri "$MONGODB_URI"
 
 COPY_NAME=$ARCHIVE_NAME
 
