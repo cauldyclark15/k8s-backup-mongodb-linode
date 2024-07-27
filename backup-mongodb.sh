@@ -3,17 +3,16 @@
 set -e
 
 SCRIPT_NAME=backup-mongodb
-ARCHIVE_NAME=mongodump_$DATABASE.gz
-OPLOG_FLAG=""
 
-if [ -n "$MONGODB_OPLOG" ]; then
-	OPLOG_FLAG="--oplog"
+if [ -n "$ENV" ]; then
+    ARCHIVE_NAME=mongodump_${DATABASE}_${ENV}.gz
+else
+    ARCHIVE_NAME=mongodump_${DATABASE}.gz
 fi
 
 echo "[$SCRIPT_NAME] Dumping $DATABASE database to compressed archive..."
 
-mongodump $OPLOG_FLAG \
-	--archive="$ARCHIVE_NAME" \
+mongodump --archive="$ARCHIVE_NAME" \
 	--db="$DATABASE" \
 	--authenticationDatabase "admin" \
 	--gzip \

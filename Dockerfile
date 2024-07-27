@@ -18,7 +18,8 @@ ENV MONGODB_URI="" \
     LINODE_CLI_OBJ_ACCESS_KEY="" \
     LINODE_CLI_OBJ_SECRET_KEY="" \
     REGION="" \
-    DATABASE=""
+    DATABASE="" \
+    ENV=""
 
 RUN apt-get clean autoclean && \
     apt-get autoremove --yes && \

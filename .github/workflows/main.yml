@@ -3,7 +3,7 @@ name: Docker Image CI
 on:
   push:
     branches:
-      - main
+      - release
   workflow_dispatch:
 jobs:
   build-and-deploy:
