@@ -18,5 +18,5 @@ helm package mongodb-backup
 ### Deploy your helm chart:
 
 ```sh
-helm upgrade --install itemcount-mongodb-backup ./mongodb-backup-0.1.0.tgz
+helm upgrade --install itemcount-mongodb-backup ./mongodb-backup-1.0.0.tgz
 ```
