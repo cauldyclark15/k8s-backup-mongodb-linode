@@ -50,4 +50,4 @@ spec:
                       name: linode
                       key: REGION
                 - name: DATABASE
-                  value: {{ .Values.database }}
+                  value: {{.Values.database}}

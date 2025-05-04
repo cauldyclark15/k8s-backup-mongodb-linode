@@ -3,7 +3,7 @@ kind: CronJob
 metadata:
   name: backup-mongodb
 spec:
-  schedule: {{ .Values.schedule }}
+  schedule: {{.Values.schedule}}
   concurrencyPolicy: Forbid
   suspend: false
   successfulJobsHistoryLimit: 3
@@ -15,7 +15,7 @@ spec:
           restartPolicy: OnFailure
           containers:
             - name: backup-mongodb
-              image: cauldyclark15/mongodb-backup:local005
+              image: cauldyclark15/mongodb-backup:local010
               env:
                 - name: MONGODB_URI
                   valueFrom:
@@ -50,6 +50,6 @@ spec:
                       name: linode
                       key: REGION
                 - name: DATABASE
-                  value: {{ .Values.database }}
+                  value: {{.Values.database}}
                 - name: ENV
-                  value: {{ .Values.env }}
+                  value: {{.Values.env}}
